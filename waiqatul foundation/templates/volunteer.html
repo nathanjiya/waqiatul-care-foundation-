@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Volunteer Form</title>
+  <link rel="shortcut icon" href="/static/waqia foundation.jpg" type="image/x-icon">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f4f8;
+      color: #333;
+    }
+
+    .form-container {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 120px;
+      margin-bottom: 10px;
+    }
+
+    .logo h2 {
+      margin: 0;
+      font-size: 22px;
+      color: #009688;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: border 0.3s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #009688;
+      outline: none;
+    }
+
+    .gender-group {
+      display: flex;
+      gap: 15px;
+      margin-top: 5px;
+    }
+
+    .gender-group label {
+      font-weight: normal;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background-color: #009688;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #00796b;
+    }
+
+    .back-button {
+      display: block;
+      width: max-content;
+      margin: 30px auto 10px;
+      padding: 10px 20px;
+      background-color: #666;
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      font-weight: 500;
+    }
+
+    .back-button:hover {
+      background-color: #444;
+    }
+
+    @media (max-width: 600px) {
+      .gender-group {
+        flex-direction: column;
+      }
+
+      .form-container {
+        margin: 20px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <form action="/volunteer" method="POST">
+      <div class="logo">
+        <img src="/static/waqiatul logo.jpg" alt="Waqiatul Logo" />
+        <h2>Waqiatul Cares Foundation Volunteer Form</h2>
+      </div>
+
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob">
+
+      <label for="gender">Select your Gender:</label>
+      <div class="gender-group">
+        <label><input type="radio" name="gender" value="Male" required> Male</label>
+        <label><input type="radio" name="gender" value="Female"> Female</label>
+        <label><input type="radio" name="gender" value="Other"> Other</label>
+      </div>
+
+      <label for="interest">Area of Interest:</label>
+      <select id="interest" name="interest" required>
+        <option value="" disabled selected>Select one</option>
+        <option value="Healthcare">Healthcare</option>
+        <option value="Education">Education</option>
+        <option value="Community Support">Community Support</option>
+        <option value="Fundraising">Fundraising</option>
+      </select>
+
+      <label for="why">Why do you want to join us?</label>
+      <textarea id="why" name="why" rows="4" placeholder="Describe your motivation..." required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <a href="/" class="back-button">← Back to Home</a>
+</body>
+</html>

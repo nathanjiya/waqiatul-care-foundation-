@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Waqiatul Cares Foundation</title>
+  <link rel="shortcut icon" href="/static/waqia foundation.jpg" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --primary-bg: linear-gradient(to right, #f7f8fa, #e2ebf0);
+      --text-color: #2F2F2F;
+      --accent-color: #E6FFFA;
+      --secondary-accent: #3FA796;
+      --dark-bg: #1C1C1C;
+      --light-gray: #F4F4F4;
+      --gradient-dark: linear-gradient(135deg, #111, #3FA796);
+      --highlight-color: #F1A7C1; /* Added highlight color */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--primary-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+    }
+
+    .brand img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-right: 1rem;
+    }
+
+    h2 {
+        font-weight: 700;
+        color: var(--dark-bg);
+        font-size: 1.6rem;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+    }
+
+    nav a {
+        margin: 0 1.2rem;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s, border-bottom 0.3s;
+        padding-bottom: 5px;
+        color: #000000;
+    }
+
+    nav a:hover {
+        color: var(--secondary-accent);
+        border-bottom: 2px solid var(--secondary-accent);
+    }
+
+    .contact-btn {
+        background: var(--secondary-accent);
+        border: none;
+        padding: 0.6rem 1.5rem;
+        border-radius: 25px;
+        color: white;
+        font-weight: 600;
+        margin-left: 1rem;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .contact-btn:hover {
+        background: #e28500;
+    }
+
+    .hamburger {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: var(--dark-bg);
+    }
+
+    .hero {
+      background: var(--gradient-dark);
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+      font-weight: 400;
+    }
+
+    .get-involved-btn {
+      background-color: var(--secondary-accent);
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background 0.3s;
+      font-size: 1.1rem;
+    }
+
+    .get-involved-btn:hover {
+      background-color: #2D807C;
+      transform: translateY(-5px);
+    }
+
+    .about, .our-mission, .impact, .focus, .team, .testimonials, .events, .newsletter, .donation {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .about img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .about img:hover {
+      transform: scale(1.05);
+    }
+
+    .impact, footer {
+      background: var(--dark-bg);
+      color: white;
+      text-align: center;
+    }
+
+    .impact {
+      display: flex;
+      justify-content: space-around;
+      padding: 2rem 1rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .impact div {
+      flex: 1 1 200px;
+    }
+
+    .counter {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--secondary-accent);
+    }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .focus-grid .item {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .focus-grid .item:hover {
+      transform: translateY(-5px);
+    }
+
+    .focus-grid img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .team {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .team div {
+      text-align: center;
+      margin: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .team div:hover {
+      transform: scale(1.05);
+    }
+
+    .testimonials, .events, .newsletter, .donation {
+      background-color: var(--accent-color);
+      border-radius: 10px;
+      margin: 2rem auto;
+      max-width: 1000px;
+      padding: 2rem;
+    }
+
+    .testimonials .card, .events .event {
+      margin: 1rem 0;
+      padding: 1rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .testimonials .card:hover, .events .event:hover {
+      transform: scale(1.05);
+    }
+
+    .newsletter input {
+      padding: 0.5rem;
+      width: 70%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .newsletter button {
+      padding: 0.5rem 1rem;
+      background-color: var(--secondary-accent);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .newsletter button:hover {
+      background-color: #555;
+    }
+
+    .donation button {
+      background: var(--secondary-accent);
+      padding: 1rem 2rem;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .donation button:hover {
+      background: #2D807C;
+    }
+
+    footer {
+      background-color: var(--dark-bg);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+         /* Hide the default horizontal nav */
+  nav {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background-color: var(--dark-bg);
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.4s ease;
+  }
+
+  /* When the nav is open, show it vertically */
+  nav.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Hamburger menu icon */
+  .hamburger {
+    display: block;
+  }
+
+  /* Make nav links stack vertically */
+  nav a {
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ffffff;
+  }
+
+  /* Optionally, make the hamburger icon bigger */
+  .hamburger {
+    font-size: 2.5rem;
+  }
+    
+
+      .section {
+        padding: 2.5rem 1rem;
+      }
+
+      .about {
+        flex-direction: column;
+        padding: 2rem 1rem;
+      }
+
+      .about img {
+        margin-top: 0;
+      }
+
+      .impact {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 1rem;
+      }
+
+      .focus {
+        grid-template-columns: 1fr;
+      }
+
+      .team {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero {
+        padding: 4rem 1rem;
+      }
+    }
+
+    /* Fade-in Up Animation */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <img src="/static/waqia foundation.jpg" alt="Waqiatul Cares Foundation Logo"/>
+        </div>
+        <nav id="mainNav">
+            <a href="/">Home</a>
+            <a href="#about">About Us</a>
+            <a href="tel:07033222893">Contact Us</a>
+            <a href="/volunteer"><button class="contact-btn">Get Involved</button></a>
+        </nav>
+        <div class="hamburger" onclick="toggleNav()" aria-label="Toggle navigation">&#9776;</div>
+    </header>
+
+  <div class="hero">
+    <h1>WAQIATUL CARES FOUNDATION</h1>
+    <p>We Care for your Health</p>
+    <a href="/volunteer"><button class="get-involved-btn">Get Involved</button></a>
+  </div>
+
+  <div class="about" id="about">
+    <h2>Who we are</h2>
+    <p>Waqiatul Cares Foundation is a non-governmental, nonprofit-making organization deeply committed to the care, protection, and overall well-being of older and elderly individuals within society. 
+      Recognizing the unique challenges faced by this vulnerable group, the organization provides essential support services that promote healthy aging, social inclusion, and emotional well-being. 
+      In addition to offering direct care, the organization actively advocates against all forms of violence, abuse, neglect, and harmful practices targeted at the elderly.
+      It seeks to raise public awareness about the rights and dignity of older people and to influence policies that safeguard their interests. Driven by a vision of a peaceful, inclusive, and compassionate society,
+      the organization empowers the elderly to lead self-reliant and meaningful lives. 
+      Through its programs and initiatives, it aims to foster development and create an environment where every individual, regardless of age, can thrive and attain their full potential.
+    </p>
+    <img src="/static/about image.jpg" alt="About image">
+  </div>
+
+  <div class="our-mission">
+    <h2>Our Mission</h2>
+    <p>Promote, protect, and give care aged individuals by addressing the challenges they face and fostering their well-being through innovative health care, education, advocacy, 
+      counseling, and social support services—geared towards enhancing their quality of life, ensuring dignity in aging, and enabling their meaningful contribution to
+      national development.</p>
+  </div>
+
+  <div class="impact">
+    <div>
+      <div class="counter" data-target="100">0</div>
+      <p>elderly cared for</p>
+    </div>
+    <div>
+      <div class="counter" data-target="50">0</div>
+      <p>volunteers</p>
+    </div>
+    <div>
+      <div class="counter" data-target="5">0</div>
+      <p>communities visited</p>
+    </div>
+  </div>
+  <section>
+    <h2>Our Focus</h2>
+    <div class="focus-grid">
+      <div class="item">
+        <img src="/static/health care.jpg" alt="Health Care" height="170px">
+        <h3><i class="fas fa-heartbeat"></i> Health Care</h3>
+        <p>Providing quality health services tailored to the needs of the elderly.</p>
+      </div>
+      <div class="item">
+        <img src="/static/nutrition.jpg" alt="Nutrition" height="170px">
+        <h3><i class="fas fa-apple-alt"></i> Nutrition</h3>
+        <p>Ensuring proper dietary support for aging individuals to thrive.</p>
+      </div>
+
+    <div class="item">
+      <img src="/static/therapy.jpg" alt="Therapy image" height="170px">
+      <h3>Recreational and Occupational Therapy</h3>
+      <p>Offering emotional support and counseling to combat loneliness and stress.</p>
+    </div>
+    <div class="item">
+      <img src="/static/community workshop.jpg" alt="Training and Community Outreach image" height="170px">
+      <h3>Training and Community Outreach</h3>
+      <p>Specialized therapies to improve the physical and mental health of the elderly.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+  <div class="team">
+    <div>
+      <img src="" alt="CEO">
+      <h2>Mrs Name</h2>
+    </div>
+    <div>
+      <img src="" alt="Founder">
+      <h2>Mr. Name</h2>
+    </div>
+  </div>
+
+  <div class="donation">
+    <h2 style="text-align:center;">Support Our Mission</h2>
+    <p style="text-align:center; margin: 1rem 0;">
+      Help us care for the elderly and vulnerable in our communities. A call can make a difference.
+    </p>
+    <div style="text-align:center;">
+      <a href="tel:+2347033222893">
+        <button>Donate Now</button>
+      </a>
+    </div>
+    <p style="text-align:center; margin-top: 1rem; font-style: italic;">
+      Call to donate or get donation instructions instantly.
+    </p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Waqiatul Cares Foundation | All Rights Reserved</p>
+  </footer>
+  <script>
+    function toggleNav() {
+        document.getElementById('mainNav').classList.toggle('open');
+      }
+    const counters = document.querySelectorAll('.counter');
+const speed = 200;
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      counters.forEach(counter => {
+        counter.innerText = '0';
+        const updateCounter = () => {
+          const target = +counter.getAttribute('data-target');
+          const count = +counter.innerText;
+          const increment = target / speed;
+          if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCounter, 10);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCounter();
+      });
+      observer.unobserve(entry.target); // Stop observing after animation starts
+    }
+  });
+}, { threshold: 0.5 });
+
+observer.observe(document.querySelector('.impact'));
+
+  </script>
+</body>
+</html>
